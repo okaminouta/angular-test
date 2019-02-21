@@ -1,0 +1,14 @@
+<div class="backdrop"
+     [class.open]="isOpen"
+     (click)="handleClickBackdrop($event)"
+     #overlayRef>
+  <div class="modal">
+    <div class="modal-header"
+         *ngIf="modalHeader">
+      <p>{{modalHeader}}</p>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

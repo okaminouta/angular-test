@@ -1,0 +1,21 @@
+<div
+  class="row justify-content-center"
+  id="gif-container"
+  (scrolled)="onScroll()"
+  infiniteScroll [infiniteScrollDistance]="1"
+  *ngIf="trendingGifs && trendingGifs.length>0"
+>
+  <div *ngFor="let gif of trendingGifs" class="d-flex">
+    <div (click)="openModal(gif)">
+      <img [defaultImage]="gif.images['480w_still'].url" [lazyLoad]="gif.images.original.url" [offset]="1" alt="gif">
+    </div>
+  </div>
+  <div *ngIf="isOpen">
+    <app-modal [isOpen]="isOpen"
+               [modalHeader]="selectedImg.title"
+               (close)="toggleModal($event)">
+      <app-single-gif [item]="selectedImg" (close)="toggleModal($event)"> </app-single-gif>
+    </app-modal>
+  </div>
+  <div *ngIf="!trendingGifs && trendingGifs.length==0"><h1>Sorry, nothing here</h1></div>
+</div>

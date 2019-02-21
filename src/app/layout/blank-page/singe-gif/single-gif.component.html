@@ -1,0 +1,10 @@
+<div *ngIf="item">
+  <div class="row justify-content-center align-items-center">
+    <div class="d-flex ">
+      <img [src]="item.images.original.url" alt="gif">
+    </div>
+  </div>
+  <div class="btn btn-success col p-2 mt-3" *ngIf="!favoritedItem" (click)="addFavorite(item.id)">Add to favorites</div>
+  <div class="btn btn-warning col p-2 mt-3" *ngIf="favoritedItem" (click)="removeFavorite(item.id)">Remove from favorites</div>
+  <div class="btn btn-secondary col p-2 mt-3" (click)="closeModal()">Close</div>
+</div>

@@ -1,0 +1,60 @@
+//@import '~src/styles/main';
+
+.backdrop {
+  display: none;
+  background: rgba(black, .7);
+  text-align: center;
+  position: fixed;
+  padding: 1rem;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  z-index: 1;
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 0;
+  }
+}
+.modal {
+  visibility: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 50rem;
+  width: 100%;
+  margin: 10vh auto;
+  height: fit-content;
+  text-align: left;
+  background: rgba(white, .8);
+  transition: all 0.5s;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(white, .5);
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.15);
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.open {
+  display: block;
+  .modal {
+    visibility: visible;
+    animation: modalTranslate 0.5s;
+  }
+  body {
+    overflow: hidden;
+  }
+}
